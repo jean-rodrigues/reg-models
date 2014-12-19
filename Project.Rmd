@@ -71,4 +71,4 @@ predict(reg, data.frame(am=0), interval="confidence") ## automatic
 predict(reg, data.frame(am=1), interval="confidence") ## manual
 ```
 
-In 95% of the cases, we will have an automatic car mpg between [17.147, 19.444] and a manual mpg between [24.392, 27.168], which is quite a difference, since in the worst case scenario we will have a difference of about 24.392 - 19.444 = 4.948, which is about 20%...
+In 95% of the cases, we will have an automatic car mpg between [17.147, 19.444] and a manual mpg between [24.392, 27.168], which is quite a difference, since in the worst case scenario we will have a difference of about 24.392 - 19.444 = 4.948, which is about 20% of upper bound manual cars interval.
