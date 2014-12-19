@@ -54,16 +54,16 @@ At first sight, the mpg mean for automatics are lower than those that are manual
 lm(data=mtcars, formula=mpg ~ 0 + factor(am))
 ```
 
-If we try to create a linear regression model, we can see that the coefficients are the means of both automatic and manual measured mpg.
+If we try to create a linear regression model, we can see above that the coefficients are the means of both automatic and manual measured mpg. So we did not get anything new here.
 
 Let's try a regression to the mean:
 ```{r echo=TRUE, eval=TRUE}
 lm(data=mtcars, formula=I(mpg - mean(mpg)) ~ 0 + factor(am))
 ```
 
-So, in other words, automatic cars mpg are in average 4.302 above the mean, while manuals are in average 2.943 below the mean.
+So, in other words, automatic cars mpg are in average 4.302 above the mean, while manuals are in average 2.943 below the mean. Now we begin to see the difference between automatics and manuals.
 
-If we try to predict the 95% confidence interval of this linear regression, we would have the following:
+Let's investigate further. If we try to predict the 95% confidence interval of this linear regression, we would have the following:
 
 ```{r echo=TRUE, eval=TRUE}
 reg <-lm(data=mtcars, formula=mpg ~ 0 + factor(am))
