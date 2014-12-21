@@ -27,14 +27,14 @@ In the graph (see Figure 1) we can see that there are many points away from the 
 
 Let's see the means:
 
-```{r echo=TRUE, eval=F}
+```{r echo=TRUE, eval=TRUE}
 library(dplyr)
 summarise(group_by(mtcars, am), mean(mpg), sd(mpg), qty=n())
 ```
 
 At first sight, the mpg mean for automatics are lower than those that are manual. So automatics seem to be more inefficient but we cannot conclude that yet.
 
-```{r echo=TRUE, eval=F}
+```{r echo=TRUE, eval=TRUE}
 summary(lm(data=mtcars, formula=mpg ~ factor(am)))
 ```
 
@@ -45,7 +45,7 @@ The residuals are in the range [-10, 10], as we can see in the y-axis. There is 
 Now let's switch to the full model, evaluate all the 11 variables through a linear regression to see if there is improvement.
 Let's see what happens when the try a regression similar to the former, selecting more variables:
 
-```{r echo=TRUE, eval=F}
+```{r echo=TRUE, eval=TRUE}
 library(MASS)
 lm_full<-lm(mpg~ ., data=mtcars)
 step <- stepAIC(lm_full, direction="both")
