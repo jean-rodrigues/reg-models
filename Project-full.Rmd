@@ -56,6 +56,10 @@ This will select the following variables for us (wt, qsec and am), and will be a
 
 The residuals now are in Figure 3.
 
+```{r echo=TRUE, eval=F}
+lm(data=mtcars, formula=mpg ~ wt + qsec -am +factor(am))
+```
+
 The new interval in the y-axis are about [-4,5] which is much lower than the previous one of [-10, 10]. This model tells us that an manual car can run in average more 2.935 miles per galon than a automatic car (this information is in am line in the summary above). There is a residual standard error of 2.459 (lower than the previous one of 4.90).
 
 However, we have a very huge standard error in the intercept (factor(am)0) of about 6.96 (the slope (factor(am)1) is 2.935 and the error in the slope is 1.41, high as well). Aside from that, if we compare F-Statistic value, we can verify that the latter model is a more relevant (has much higher F-statistic) than the previous one. This tells us that the difference between the groups is more relevant when we use the augmented model. The last model has some high p-values for some of the variables, which means that we added some noise to the model.
@@ -66,6 +70,7 @@ In order to elaborate a little more about the slopes of the am variable, let's c
 confint(lm(data=mtcars, formula=mpg ~ wt + qsec -am +factor(am)))
 ```
 
+With this information, we will choose the latter model to conclude our analysis.
 
 **Conclusion**
 
